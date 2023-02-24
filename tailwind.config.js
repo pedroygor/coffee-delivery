@@ -19,17 +19,24 @@ module.exports = {
           baseText: '#574F4D',
           baseHover: '#555564',
           baseButton: '#E6E5E5',
-          baseInput: '#EDEDED'
+          baseInput: '#EDEDED',
+          card: '#F3F2F2',
+          description: '#8D8686'
         },
         background: {
           background: '#FAFAFA'
         }
+      },
+      borderRadius: {
+        card: '6px 36px'
+      },
+
+      fontFamily: {
+        baloo: ['Baloo 2', 'cursive'],
+        roboto: ['Roboto', 'sans-serif']
       }
     },
-    fontFamily: {
-      baloo: ['Baloo 2', 'cursive'],
-      roboto: ['Roboto', 'sans-serif']
-    },
+
     plugins: []
   }
 }
