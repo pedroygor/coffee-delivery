@@ -2,6 +2,7 @@ import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { useState } from 'react'
 
 interface CoffeeCardProps {
+  id: number
   name: string
   description: string
   price: number
@@ -19,16 +20,23 @@ export const CoffeeCard = ({
   quantidade
 }: CoffeeCardProps) => {
   const [quantidadePedido, setQuantidadePedido] = useState(1)
+  const [total, setTotal] = useState(price)
 
   const handleAdd = () => {
     if (quantidadePedido < quantidade) {
-      setQuantidadePedido(quantidadePedido + 1)
+      setQuantidadePedido((quantidade) => {
+        setTotal(price * (quantidade + 1))
+        return quantidade + 1
+      })
     }
   }
 
   const handleRemove = () => {
     if (quantidadePedido > 1) {
-      setQuantidadePedido(quantidadePedido - 1)
+      setQuantidadePedido((quantidade) => {
+        setTotal(price * (quantidade - 1))
+        return quantidade - 1
+      })
     }
   }
 
@@ -67,7 +75,7 @@ export const CoffeeCard = ({
               R$
             </span>
             <span className="font-baloo text-2xl font-bold leading-6">
-              {price.toFixed(2)}
+              {total.toFixed(2)}
             </span>
           </div>
 

@@ -21,7 +21,8 @@ module.exports = {
           baseButton: '#E6E5E5',
           baseInput: '#EDEDED',
           card: '#F3F2F2',
-          description: '#8D8686'
+          description: '#8D8686',
+          radio: '#D7D5D5'
         },
         background: {
           background: '#FAFAFA'
