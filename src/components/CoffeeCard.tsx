@@ -1,4 +1,5 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
+import { useState } from 'react'
 
 interface CoffeeCardProps {
   name: string
@@ -17,6 +18,20 @@ export const CoffeeCard = ({
   categorias,
   quantidade
 }: CoffeeCardProps) => {
+  const [quantidadePedido, setQuantidadePedido] = useState(1)
+
+  const handleAdd = () => {
+    if (quantidadePedido < quantidade) {
+      setQuantidadePedido(quantidadePedido + 1)
+    }
+  }
+
+  const handleRemove = () => {
+    if (quantidadePedido > 1) {
+      setQuantidadePedido(quantidadePedido - 1)
+    }
+  }
+
   return (
     <div className="relative flex h-[310px] w-64 flex-col items-center justify-end gap-4 rounded-card bg-base-card">
       <img
@@ -31,7 +46,7 @@ export const CoffeeCard = ({
             {categorias.map((item) => (
               <span
                 key={item}
-                className="rounded-md bg-produto-yellowLight px-2 text-center text-xs font-bold text-produto-yellowDark"
+                className="rounded-full bg-produto-yellowLight p-2 text-center font-roboto text-[10px] font-bold uppercase text-produto-yellowDark"
               >
                 {item}
               </span>
@@ -58,18 +73,24 @@ export const CoffeeCard = ({
 
           <div className="flex gap-2 ">
             <div className="flex h-9 items-center justify-center gap-1 rounded-lg bg-base-baseButton p-2">
-              <button className="text-produto-purple">
+              <button
+                className="text-produto-purple transition-colors duration-300 ease-in-out hover:text-produto-purpleDark"
+                onClick={handleRemove}
+              >
                 <Minus size={16} weight="fill" />
               </button>
               <span className="font-baloo text-xl font-normal">
-                {quantidade}
+                {quantidadePedido}
               </span>
-              <button className="text-produto-purple">
+              <button
+                className="text-produto-purple transition-colors duration-300 ease-in-out hover:text-produto-purpleDark"
+                onClick={handleAdd}
+              >
                 <Plus size={16} weight="fill" />
               </button>
             </div>
 
-            <button className="flex h-9 w-9 items-center justify-center rounded-md bg-produto-purpleDark p-2 text-white">
+            <button className="flex h-9 w-9 items-center justify-center rounded-md bg-produto-purpleDark p-2 text-white transition-colors duration-300 ease-in-out hover:bg-produto-purple">
               <ShoppingCart size={16} weight="fill" />
             </button>
           </div>

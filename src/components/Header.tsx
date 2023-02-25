@@ -4,7 +4,7 @@ import logo from '../assets/images/Logo.svg'
 
 export const Header = () => {
   return (
-    <header className="flex items-center justify-around py-8">
+    <header className="mx-auto flex items-center justify-between py-8 sm:w-11/12 xl:w-4/5">
       <img src={logo} alt="" />
       <div className="flex items-center justify-center gap-3">
         <div className="flex h-9 items-center justify-center gap-1 rounded-md bg-produto-purpleLight px-2 text-sm leading-[18px] text-produto-purple">

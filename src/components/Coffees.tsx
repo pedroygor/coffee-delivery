@@ -3,11 +3,11 @@ import { infoCoffees } from 'utils/infoCoffees'
 
 export const Coffees = () => {
   return (
-    <div className=" mx-auto mt-10 w-3/5">
+    <div className="mx-auto my-16">
       <h1 className="mb-16 font-baloo text-3xl font-bold text-base-baseSubtitle">
         Nossos Cafés
       </h1>
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-wrap gap-8 xl:grid xl:grid-cols-4">
         {infoCoffees.map((item) => (
           <CoffeeCard
             key={item.name}
