@@ -1,7 +1,6 @@
-import { useContext } from 'react'
-import { infoCoffees } from 'utils/infoCoffees'
+import { createContext } from 'react'
 
-interface ICoffeeCart {
+export interface ICoffeeCart {
   id: number
   name: string
   description: string
@@ -11,10 +10,15 @@ interface ICoffeeCart {
   quantidade: number
 }
 
-interface ShoppingCartContext {
+export interface IShoppingCartContext {
   cart: ICoffeeCart[]
-  setCart: (cart: ICoffeeCart[]) => void
+  products: ICoffeeCart[]
+  setProducts: (products: ICoffeeCart[]) => void
   addCoffee: (coffee: ICoffeeCart) => void
   removeCoffee: (coffee: ICoffeeCart) => void
   clearCart: () => void
 }
+
+const ShoppingCartContext = createContext({} as IShoppingCartContext)
+
+export default ShoppingCartContext

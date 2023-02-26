@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import ShoppingCartContext from '../context/ShoppingCartContext'
 
 interface CoffeeCardProps {
   id: number
@@ -12,6 +13,7 @@ interface CoffeeCardProps {
 }
 
 export const CoffeeCard = ({
+  id,
   name,
   description,
   price,
@@ -21,6 +23,7 @@ export const CoffeeCard = ({
 }: CoffeeCardProps) => {
   const [quantidadePedido, setQuantidadePedido] = useState(1)
   const [total, setTotal] = useState(price)
+  const { addCoffee, cart } = useContext(ShoppingCartContext)
 
   const handleAdd = () => {
     if (quantidadePedido < quantidade) {
@@ -38,6 +41,22 @@ export const CoffeeCard = ({
         return quantidade - 1
       })
     }
+  }
+
+  const handleAddToCart = () => {
+    if (cart.find((item) => item.id === id)) {
+      return
+    }
+
+    addCoffee({
+      id,
+      name,
+      description,
+      price,
+      image,
+      categorias,
+      quantidade: quantidadePedido
+    })
   }
 
   return (
@@ -98,7 +117,10 @@ export const CoffeeCard = ({
               </button>
             </div>
 
-            <button className="flex h-9 w-9 items-center justify-center rounded-md bg-produto-purpleDark p-2 text-white transition-colors duration-300 ease-in-out hover:bg-produto-purple">
+            <button
+              className="flex h-9 w-9 items-center justify-center rounded-md bg-produto-purpleDark p-2 text-white transition-colors duration-300 ease-in-out hover:bg-produto-purple"
+              onClick={handleAddToCart}
+            >
               <ShoppingCart size={16} weight="fill" />
             </button>
           </div>

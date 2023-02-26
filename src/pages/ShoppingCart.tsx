@@ -1,3 +1,4 @@
+import ShoppingCartContext from '../context/ShoppingCartContext'
 import { IFormInput } from 'interfaces/IFormInput'
 import {
   Bank,
@@ -7,9 +8,11 @@ import {
   Money
 } from 'phosphor-react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { useContext } from 'react'
 
 export const ShoppingCart = () => {
   const { register, handleSubmit, control } = useForm<IFormInput>()
+  const { cart, removeCoffee } = useContext(ShoppingCartContext)
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data)
 
@@ -176,6 +179,29 @@ export const ShoppingCart = () => {
                 )}
               />
             </div>
+          </div>
+        </div>
+
+        <div>
+          <h1 className="mb-4 font-baloo text-lg font-bold leading-6 text-base-baseSubtitle">
+            Cafés selecionados
+          </h1>
+          <div className="flex flex-col">
+            {cart.map((item) => (
+              <div
+                key={item.id}
+                className="mb-4 flex items-center justify-between gap-4"
+              >
+                <div className="flex items-center gap-4">
+                  <img src={item.image} alt={item.name} />
+                  <div>
+                    <h2 className="text-sm font-medium leading-5 text-base-baseSubtitle">
+                      {item.name}
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </form>
