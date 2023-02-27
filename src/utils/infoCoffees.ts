@@ -18,7 +18,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image1,
     categorias: ['tradicional'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image2,
     categorias: ['tradicional'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image3,
     categorias: ['tradicional'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image4,
     categorias: ['tradicional', 'com leite'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 5,
@@ -55,7 +55,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image5,
     categorias: ['tradicional', 'com leite'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image6,
     categorias: ['tradicional', 'com leite'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 7,
@@ -74,7 +74,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image7,
     categorias: ['tradicional', 'com leite'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 8,
@@ -83,7 +83,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image8,
     categorias: ['especial', 'com leite'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 9,
@@ -93,7 +93,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image9,
     categorias: ['gelado', 'com leite', 'especial'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 10,
@@ -102,7 +102,7 @@ export const infoCoffees = [
     price: 9.9,
     image: image10,
     categorias: ['especial'],
-    quantidade: 15
+    quantidade: 1
   },
   {
     id: 11,
@@ -111,6 +111,6 @@ export const infoCoffees = [
     price: 9.9,
     image: image11,
     categorias: ['especial', 'alcoólico'],
-    quantidade: 15
+    quantidade: 1
   }
 ]

@@ -13,10 +13,10 @@ export interface ICoffeeCart {
 export interface IShoppingCartContext {
   cart: ICoffeeCart[]
   products: ICoffeeCart[]
-  setProducts: (products: ICoffeeCart[]) => void
   addCoffee: (coffee: ICoffeeCart) => void
-  removeCoffee: (coffee: ICoffeeCart) => void
+  removeCoffee: (idCoffee: number) => void
   clearCart: () => void
+  setQuantity: (idCoffee: number, quantity: number) => void
 }
 
 const ShoppingCartContext = createContext({} as IShoppingCartContext)

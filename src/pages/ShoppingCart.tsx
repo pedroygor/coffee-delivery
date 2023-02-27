@@ -5,20 +5,28 @@ import {
   CreditCard,
   CurrencyDollar,
   MapPinLine,
-  Money
+  Minus,
+  Money,
+  Plus
 } from 'phosphor-react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { useContext } from 'react'
+import { ShoppingCartCard } from 'components/ShoppingCartCard'
 
 export const ShoppingCart = () => {
   const { register, handleSubmit, control } = useForm<IFormInput>()
   const { cart, removeCoffee } = useContext(ShoppingCartContext)
+  const frete = 7.0
+  const total = cart.reduce(
+    (acc, curr) => acc + curr.price * curr.quantidade,
+    0
+  )
 
   const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data)
 
   return (
     <div className="mx-auto flex flex-col items-start justify-start sm:w-11/12 xl:w-4/5">
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit)} className="flex gap-7">
         <div>
           <h1 className="mb-4 font-baloo text-lg font-bold leading-6 text-base-baseSubtitle">
             Complete seu pedido
@@ -106,7 +114,6 @@ export const ShoppingCart = () => {
                 />
               </div>
             </div>
-            <button type="submit">Finalizar pedido</button>
           </div>
           <div className="mt-3 flex items-start gap-2 bg-base-card p-10">
             <CurrencyDollar
@@ -182,26 +189,49 @@ export const ShoppingCart = () => {
           </div>
         </div>
 
-        <div>
+        <div className="w-full max-w-[500px]">
           <h1 className="mb-4 font-baloo text-lg font-bold leading-6 text-base-baseSubtitle">
             Cafés selecionados
           </h1>
-          <div className="flex flex-col">
-            {cart.map((item) => (
-              <div
-                key={item.id}
-                className="mb-4 flex items-center justify-between gap-4"
-              >
-                <div className="flex items-center gap-4">
-                  <img src={item.image} alt={item.name} />
-                  <div>
-                    <h2 className="text-sm font-medium leading-5 text-base-baseSubtitle">
-                      {item.name}
-                    </h2>
-                  </div>
-                </div>
+          <div className="rounded-cardShop bg-base-card p-10">
+            <div className="flex max-h-96 flex-col overflow-y-auto">
+              {cart.map((item) => (
+                <ShoppingCartCard
+                  key={item.id}
+                  id={item.id}
+                  name={item.name}
+                  price={item.price}
+                  image={item.image}
+                  quantidade={item.quantidade}
+                />
+              ))}
+            </div>
+            <div className="flex w-full flex-col items-start gap-3">
+              <div className="flex w-full items-start justify-between">
+                <p>Total de itens</p>
+                <p className="ml-2 text-base-baseSubtitle">
+                  R$ {total.toFixed(2)}
+                </p>
               </div>
-            ))}
+              <div className="flex w-full items-start justify-between">
+                <p>Entrega</p>
+                <p className="ml-2 text-base-baseSubtitle">
+                  R$ {frete.toFixed(2)}
+                </p>
+              </div>
+              <div className="flex w-full items-start justify-between">
+                <p>Total</p>
+                <p className="ml-2 text-base-baseSubtitle">
+                  R$ {(total + frete).toFixed(2)}
+                </p>
+              </div>
+            </div>
+            <button
+              type="submit"
+              className="mt-6 w-full rounded-md bg-produto-yellow px-2 py-3 text-sm font-bold uppercase leading-6 text-white transition-colors duration-300 ease-in-out hover:bg-produto-yellowDark focus:outline-none focus:ring-2 focus:ring-produto-yellowDark focus:ring-offset-2"
+            >
+              Confirmar pedido
+            </button>
           </div>
         </div>
       </form>

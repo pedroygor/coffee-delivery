@@ -29,7 +29,8 @@ module.exports = {
         }
       },
       borderRadius: {
-        card: '6px 36px'
+        card: '6px 36px',
+        cardShop: '6px 44px'
       },
 
       fontFamily: {

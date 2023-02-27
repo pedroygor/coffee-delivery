@@ -9,15 +9,15 @@ interface IShoppingCartProvider {
 
 function ShoppingCartProvider({ children }: IShoppingCartProvider) {
   const [cart, setCart] = useState<ICoffeeCart[]>([])
-  const [products, setProducts] = useState<ICoffeeCart[]>(infoCoffees)
+  const [products] = useState<ICoffeeCart[]>(infoCoffees)
 
   const addCoffee = (coffee: ICoffeeCart) => {
     const newCart = [...cart, coffee]
     setCart(newCart)
   }
 
-  const removeCoffee = (coffee: ICoffeeCart) => {
-    const newCart = cart.filter((item) => item.id !== coffee.id)
+  const removeCoffee = (idCoffee: number) => {
+    const newCart = cart.filter((item) => item.id !== idCoffee)
     setCart(newCart)
   }
 
@@ -25,15 +25,28 @@ function ShoppingCartProvider({ children }: IShoppingCartProvider) {
     setCart([])
   }
 
+  const setQuantity = (idProduct: number, quantity: number) => {
+    const newCart = cart.map((item) => {
+      if (item.id === idProduct) {
+        return {
+          ...item,
+          quantidade: quantity
+        }
+      }
+      return item
+    })
+    setCart(newCart)
+  }
+
   return (
     <ShoppingCartContext.Provider
       value={{
         cart,
         products,
-        setProducts,
         addCoffee,
         removeCoffee,
-        clearCart
+        clearCart,
+        setQuantity
       }}
     >
       {children}

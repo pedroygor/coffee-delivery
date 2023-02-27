@@ -21,25 +21,18 @@ export const CoffeeCard = ({
   categorias,
   quantidade
 }: CoffeeCardProps) => {
-  const [quantidadePedido, setQuantidadePedido] = useState(1)
-  const [total, setTotal] = useState(price)
+  const [quantidadePedido, setQuantidadePedido] = useState(quantidade)
   const { addCoffee, cart } = useContext(ShoppingCartContext)
 
   const handleAdd = () => {
-    if (quantidadePedido < quantidade) {
-      setQuantidadePedido((quantidade) => {
-        setTotal(price * (quantidade + 1))
-        return quantidade + 1
-      })
+    if (quantidadePedido < 20) {
+      setQuantidadePedido(quantidadePedido + 1)
     }
   }
 
   const handleRemove = () => {
     if (quantidadePedido > 1) {
-      setQuantidadePedido((quantidade) => {
-        setTotal(price * (quantidade - 1))
-        return quantidade - 1
-      })
+      setQuantidadePedido(quantidadePedido - 1)
     }
   }
 
@@ -94,7 +87,7 @@ export const CoffeeCard = ({
               R$
             </span>
             <span className="font-baloo text-2xl font-bold leading-6">
-              {total.toFixed(2)}
+              {price.toFixed(2)}
             </span>
           </div>
 
