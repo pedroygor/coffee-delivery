@@ -206,24 +206,26 @@ export const ShoppingCart = () => {
                 />
               ))}
             </div>
-            <div className="flex w-full flex-col items-start gap-3">
+            <div className="flex w-full flex-col items-start gap-3 font-roboto">
               <div className="flex w-full items-start justify-between">
-                <p>Total de itens</p>
-                <p className="ml-2 text-base-baseSubtitle">
+                <p className="text-sm leading-[18px] text-base-baseText">
+                  Total de itens
+                </p>
+                <p className="text-base leading-5 text-base-baseText">
                   R$ {total.toFixed(2)}
                 </p>
               </div>
               <div className="flex w-full items-start justify-between">
-                <p>Entrega</p>
-                <p className="ml-2 text-base-baseSubtitle">
+                <p className="text-sm leading-[18px] text-base-baseText">
+                  Entrega
+                </p>
+                <p className="text-base leading-5 text-base-baseText">
                   R$ {frete.toFixed(2)}
                 </p>
               </div>
-              <div className="flex w-full items-start justify-between">
+              <div className="flex w-full items-start justify-between text-xl font-bold text-base-baseSubtitle">
                 <p>Total</p>
-                <p className="ml-2 text-base-baseSubtitle">
-                  R$ {(total + frete).toFixed(2)}
-                </p>
+                <p>R$ {(total + frete).toFixed(2)}</p>
               </div>
             </div>
             <button
