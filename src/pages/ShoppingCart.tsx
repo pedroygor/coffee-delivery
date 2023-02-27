@@ -149,14 +149,18 @@ export const ShoppingCart = () => {
                 defaultValue="credito"
                 render={({ field }) => (
                   <div className="mt-8 flex flex-wrap gap-2 rounded-md font-roboto">
-                    <label className="flex min-w-[180px] cursor-pointer items-center gap-3 rounded-md bg-base-baseButton p-3 text-xs uppercase leading-5 text-base-baseText transition-colors duration-300 ease-in-out hover:bg-base-radio">
+                    <label
+                      className={`flex min-w-[180px] cursor-pointer items-center gap-3 rounded-md border bg-base-baseButton p-3 text-xs uppercase leading-5 text-base-baseText transition-colors duration-300 ease-in-out hover:bg-base-radio ${
+                        field.value === 'credito' ? 'border-produto-purple' : ''
+                      }`}
+                    >
                       <div>
                         <input
                           type="radio"
                           {...field}
                           value="credito"
                           className="hidden rounded border border-base-baseButton bg-base-baseInput
-                        p-3 outline-none focus:border-produto-yellowDark"
+            p-3 outline-none focus:border-produto-yellowDark"
                         />
                         <CreditCard
                           size={22}
@@ -166,27 +170,37 @@ export const ShoppingCart = () => {
                       </div>
                       <span>Cartão de crédito</span>
                     </label>
-                    <label className="flex min-w-[180px] cursor-pointer items-center gap-3 rounded-md bg-base-baseButton p-3 text-xs uppercase leading-5 text-base-baseText transition-colors duration-300 ease-in-out hover:bg-base-radio">
+                    <label
+                      className={`flex min-w-[180px] cursor-pointer items-center gap-3 rounded-md border bg-base-baseButton p-3 text-xs uppercase leading-5 text-base-baseText transition-colors duration-300 ease-in-out hover:bg-base-radio ${
+                        field.value === 'debito' ? 'border-produto-purple' : ''
+                      }`}
+                    >
                       <div>
                         <input
                           type="radio"
                           {...field}
                           value="debito"
                           className="hidden rounded border border-base-baseButton bg-base-baseInput
-                          p-3 outline-none focus:border-produto-yellowDark"
+            p-3 outline-none focus:border-produto-yellowDark"
                         />
                         <Bank size={22} weight="regular" color="#8047F8" />
                       </div>
                       <span>Cartão de débito</span>
                     </label>
-                    <label className="flex min-w-[180px] cursor-pointer items-center gap-3 rounded-md bg-base-baseButton p-3 text-xs uppercase leading-5 text-base-baseText transition-colors duration-300 ease-in-out hover:bg-base-radio">
+                    <label
+                      className={`flex min-w-[180px] cursor-pointer items-center gap-3 rounded-md border bg-base-baseButton p-3 text-xs uppercase leading-5 text-base-baseText transition-colors duration-300 ease-in-out hover:bg-base-radio ${
+                        field.value === 'dinheiro'
+                          ? 'border-produto-purple'
+                          : ''
+                      }`}
+                    >
                       <div>
                         <input
                           type="radio"
                           {...field}
                           value="dinheiro"
                           className="hidden rounded border border-base-baseButton bg-base-baseInput
-                        p-3 outline-none focus:border-produto-yellowDark"
+            p-3 outline-none focus:border-produto-yellowDark"
                         />
                         <Money size={22} weight="regular" color="#8047F8" />
                       </div>

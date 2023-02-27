@@ -60,7 +60,7 @@ export const ShoppingCartCard = ({
                 </button>
               </div>
               <button
-                className="flex items-center justify-center gap-1 rounded-md bg-base-baseButton px-2 py-[6px]
+                className="flex items-center justify-center gap-1 rounded-md bg-base-baseButton px-2 py-[6px] transition-colors duration-300 ease-in-out hover:bg-base-radio
 
               "
                 onClick={() => removeCoffee(id)}
