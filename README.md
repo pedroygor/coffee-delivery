@@ -1,15 +1,15 @@
 <div align="center">
 <h1>Coffee Delivery</h1>
 
-<img src="https://raw.githubusercontent.com/pedroygor/fotos/main/Captura%20de%20tela%20de%202023-02-27%2003-09-36.png?token=GHSAT0AAAAAABXK5K57XXMF7UU7O3UUHWUWY74K7QQ" alt="" />
+<img src="https://raw.githubusercontent.com/pedroygor/fotos/main/img-1.png" alt="" />
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/pedroygor/fotos/main/Captura%20de%20tela%20de%202023-02-27%2003-10-53.png?token=GHSAT0AAAAAABXK5K56E5NVKR3BPDBUXMV6Y74LBDQ" alt="" />
+<img src="https://raw.githubusercontent.com/pedroygor/fotos/main/img-2.png" alt="" />
 
 <br />
 
-<img src="https://raw.githubusercontent.com/pedroygor/fotos/main/Captura%20de%20tela%20de%202023-02-27%2003-11-02.png?token=GHSAT0AAAAAABXK5K56724QAZCHMUXPNHFQY74LBVQ" alt="" />
+<img src="https://raw.githubusercontent.com/pedroygor/fotos/main/img-3.png" alt="" />
 </div>
 
 ## :book: Sobre o Projeto
