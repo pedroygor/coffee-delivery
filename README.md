@@ -51,4 +51,8 @@ npm run dev
 
 Server <http://localhost:5173>.
 
+### 🔖 Layout
+
+Você pode visualizar o layout do projeto através [DESSE LINK](https://www.figma.com/file/5yT9ZzZmRQRS4yivGGB3pl/Coffee-Delivery/duplicate). É necessário ter conta no Figma para acessá-lo.
+
 #### 🔗 [Link para o site](https://pedroygor-coffee-delivery.netlify.app/)
