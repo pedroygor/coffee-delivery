@@ -1,5 +1,5 @@
-# Coffee Delivery
-<p align="center">
+<div align="center">
+<h1>Coffee Delivery</h1>
 
 <img src="https://raw.githubusercontent.com/pedroygor/fotos/main/Captura%20de%20tela%20de%202023-02-27%2003-09-36.png?token=GHSAT0AAAAAABXK5K57XXMF7UU7O3UUHWUWY74K7QQ" alt="" />
 
@@ -10,59 +10,45 @@
 <br />
 
 <img src="https://raw.githubusercontent.com/pedroygor/fotos/main/Captura%20de%20tela%20de%202023-02-27%2003-11-02.png?token=GHSAT0AAAAAABXK5K56724QAZCHMUXPNHFQY74LBVQ" alt="" />
-</p>
-## Getting Started
+</div>
 
-### Install
+## :book: Sobre o Projeto
 
-Access the project directory.
+Este projeto trata-se de um site de delivery de café
+
+## :wrench: Funcionalidades
+
+- Catálogo de produtos: apresentar aos usuários uma lista de produtos disponíveis para compra, incluindo informações como nome, descrição, imagem e preço
+- Carrinho de compras: permitir que o usuário selecione os produtos desejados e os adicione ao carrinho de compras, com a possibilidade de ajustar quantidades e remover itens.
+
+## :rocket: Tecnologias Usadas
+
+- Typescript
+- React
+- Hooks
+- React Hook Form
+- React Router Dom
+- Context API
+- Phosphor-react
+- Tailwind
+
+## 📜 Orientações
 
 ```bash
+# Clone o projeto
+git clone https://github.com/pedroygor/coffee-delivery.git
+
+# Entrar  no repositório
 cd coffee-delivery
+
+# Instalar dependências
+npm install
+
+# Inicializar o Projeto
+npm run dev
+
 ```
 
-Install dependencies.
+Server <http://localhost:5173>.
 
-```bash
-pnpm install
-```
-
-Serve with hot reload at <http://localhost:5173>.
-
-```bash
-pnpm run dev
-```
-
-### Lint
-
-```bash
-pnpm run lint
-```
-
-### Typecheck
-
-```bash
-pnpm run typecheck
-```
-
-### Build
-
-```bash
-pnpm run build
-```
-
-### Test
-
-```bash
-pnpm run test
-```
-
-View and interact with your tests via UI.
-
-```bash
-pnpm run test:ui
-```
-
-## License
-
-This project is licensed under the MIT License.
+#### 🔗 [Link para o site](https://pedroygor-coffee-delivery.netlify.app/)
