@@ -8,7 +8,7 @@ interface ICheckoutProvider {
 function CheckoutProvider({ children }: ICheckoutProvider) {
   const [checkout, setCheckout] = useState<ICheckout>({
     rua: '',
-    numero: '',
+    numero: 0,
     bairro: '',
     cidade: '',
     estado: '',

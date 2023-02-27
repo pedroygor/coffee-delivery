@@ -1,4 +1,4 @@
-import ShoppingCartContext from 'context/ShoppingCartContext'
+import ShoppingCartContext from '../context/ShoppingCartContext'
 import { Minus, Plus, Trash } from 'phosphor-react'
 import { useContext } from 'react'
 

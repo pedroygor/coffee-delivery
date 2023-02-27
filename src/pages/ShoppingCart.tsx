@@ -1,28 +1,38 @@
+import { useContext } from 'react'
+import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import ShoppingCartContext from '../context/ShoppingCartContext'
 import { IFormInput } from 'interfaces/IFormInput'
+import { ShoppingCartCard } from '../components/ShoppingCartCard'
+import CheckoutContext from '../context/checkout/CheckoutContext'
 import {
   Bank,
   CreditCard,
   CurrencyDollar,
   MapPinLine,
-  Minus,
-  Money,
-  Plus
+  Money
 } from 'phosphor-react'
-import { useForm, SubmitHandler, Controller } from 'react-hook-form'
-import { useContext } from 'react'
-import { ShoppingCartCard } from 'components/ShoppingCartCard'
 
 export const ShoppingCart = () => {
   const { register, handleSubmit, control } = useForm<IFormInput>()
-  const { cart, removeCoffee } = useContext(ShoppingCartContext)
+  const { cart } = useContext(ShoppingCartContext)
+  const { setCheckout } = useContext(CheckoutContext)
+
   const frete = 7.0
   const total = cart.reduce(
     (acc, curr) => acc + curr.price * curr.quantidade,
     0
   )
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => console.log(data)
+  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+    setCheckout({
+      rua: data.rua,
+      numero: data.numero,
+      bairro: data.bairro,
+      cidade: data.cidade,
+      estado: data.uf,
+      pagamento: data.paymentOption
+    })
+  }
 
   return (
     <div className="mx-auto flex flex-col items-start justify-start sm:w-11/12 xl:w-4/5">
