@@ -14,12 +14,7 @@ import {
 import { useNavigate } from 'react-router-dom'
 
 export const ShoppingCart = () => {
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors }
-  } = useForm<IFormInput>()
+  const { register, handleSubmit, control } = useForm<IFormInput>()
   const { cart, clearCart } = useContext(ShoppingCartContext)
   const { setCheckout } = useContext(CheckoutContext)
   const navigate = useNavigate()
@@ -30,18 +25,34 @@ export const ShoppingCart = () => {
     0
   )
 
+  const formatarPagamento = (pagamento: string) => {
+    switch (pagamento) {
+      case 'dinheiro':
+        return 'Dinheiro'
+      case 'debito':
+        return 'Cartão de Débito'
+      case 'credito':
+        return 'Cartão de Crédito'
+      default:
+        return 'Cartão de Crédito'
+    }
+  }
+
   const onSubmit: SubmitHandler<IFormInput> = async (data) => {
     if (cart.length === 0) {
       alert('Seu carrinho está vazio')
       return
     }
+
+    const pagamento = formatarPagamento(data.paymentOption)
+
     setCheckout({
       rua: data.rua,
       numero: data.numero,
       bairro: data.bairro,
       cidade: data.cidade,
       estado: data.uf,
-      pagamento: data.paymentOption
+      pagamento: pagamento
     } as ICheckout)
     clearCart()
     navigate('/carrinho/sucesso')
@@ -136,24 +147,6 @@ export const ShoppingCart = () => {
                   {...register('uf', { required: true })}
                 />
               </div>
-              {errors.bairro && (
-                <p role="alert">{errors.bairro?.message || 'bairro'}</p>
-              )}
-              {errors.cidade && (
-                <p role="alert">{errors.cidade?.message || 'cidade'}</p>
-              )}
-              {errors.uf && <p role="alert">{errors.uf?.message || 'uf'}</p>}
-              {errors.cep && <p role="alert">{errors.cep?.message || 'cep'}</p>}
-              {errors.rua && <p role="alert">{errors.rua?.message || 'rua'}</p>}
-              {errors.numero && (
-                <p role="alert">{errors.numero?.message || 'numero'}</p>
-              )}
-              {errors.complemento && (
-                <p role="alert">{errors.complemento?.message || 'pagamento'}</p>
-              )}
-              {errors.paymentOption && (
-                <p role="alert">{errors.paymentOption?.message}</p>
-              )}
             </div>
           </div>
           <div className="mt-3 flex items-start gap-2 bg-base-card p-10">
