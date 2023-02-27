@@ -3,7 +3,7 @@ import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import ShoppingCartContext from '../context/ShoppingCartContext'
 import { IFormInput } from 'interfaces/IFormInput'
 import { ShoppingCartCard } from '../components/ShoppingCartCard'
-import CheckoutContext from '../context/checkout/CheckoutContext'
+import CheckoutContext, { ICheckout } from '../context/checkout/CheckoutContext'
 import {
   Bank,
   CreditCard,
@@ -11,11 +11,18 @@ import {
   MapPinLine,
   Money
 } from 'phosphor-react'
+import { useNavigate } from 'react-router-dom'
 
 export const ShoppingCart = () => {
-  const { register, handleSubmit, control } = useForm<IFormInput>()
-  const { cart } = useContext(ShoppingCartContext)
+  const {
+    register,
+    handleSubmit,
+    control,
+    formState: { errors }
+  } = useForm<IFormInput>()
+  const { cart, clearCart } = useContext(ShoppingCartContext)
   const { setCheckout } = useContext(CheckoutContext)
+  const navigate = useNavigate()
 
   const frete = 7.0
   const total = cart.reduce(
@@ -23,7 +30,11 @@ export const ShoppingCart = () => {
     0
   )
 
-  const onSubmit: SubmitHandler<IFormInput> = (data) => {
+  const onSubmit: SubmitHandler<IFormInput> = async (data) => {
+    if (cart.length === 0) {
+      alert('Seu carrinho está vazio')
+      return
+    }
     setCheckout({
       rua: data.rua,
       numero: data.numero,
@@ -31,7 +42,9 @@ export const ShoppingCart = () => {
       cidade: data.cidade,
       estado: data.uf,
       pagamento: data.paymentOption
-    })
+    } as ICheckout)
+    clearCart()
+    navigate('/carrinho/sucesso')
   }
 
   return (
@@ -80,10 +93,10 @@ export const ShoppingCart = () => {
                 <input
                   className="max-w-[200px] rounded border border-base-baseButton bg-base-baseInput p-3
                   text-sm leading-4 text-base-baseText outline-none focus:border-produto-yellowDark"
-                  type="text"
+                  type="number"
                   id="numero"
                   placeholder="Número"
-                  {...register('numero', { required: true, pattern: /\d+/g })}
+                  {...register('numero', { required: true })}
                 />
 
                 <input
@@ -92,7 +105,7 @@ export const ShoppingCart = () => {
                   type="text"
                   id="complemento"
                   placeholder="Complemento"
-                  {...register('complemento')}
+                  {...register('complemento', { required: false })}
                 />
               </div>
               <div className="flex w-full flex-wrap gap-3">
@@ -123,6 +136,24 @@ export const ShoppingCart = () => {
                   {...register('uf', { required: true })}
                 />
               </div>
+              {errors.bairro && (
+                <p role="alert">{errors.bairro?.message || 'bairro'}</p>
+              )}
+              {errors.cidade && (
+                <p role="alert">{errors.cidade?.message || 'cidade'}</p>
+              )}
+              {errors.uf && <p role="alert">{errors.uf?.message || 'uf'}</p>}
+              {errors.cep && <p role="alert">{errors.cep?.message || 'cep'}</p>}
+              {errors.rua && <p role="alert">{errors.rua?.message || 'rua'}</p>}
+              {errors.numero && (
+                <p role="alert">{errors.numero?.message || 'numero'}</p>
+              )}
+              {errors.complemento && (
+                <p role="alert">{errors.complemento?.message || 'pagamento'}</p>
+              )}
+              {errors.paymentOption && (
+                <p role="alert">{errors.paymentOption?.message}</p>
+              )}
             </div>
           </div>
           <div className="mt-3 flex items-start gap-2 bg-base-card p-10">
@@ -213,12 +244,12 @@ export const ShoppingCart = () => {
           </div>
         </div>
 
-        <div className="w-full max-w-[500px]">
+        <div className="w-full max-w-[540px]">
           <h1 className="mb-4 font-baloo text-lg font-bold leading-6 text-base-baseSubtitle">
             Cafés selecionados
           </h1>
           <div className="rounded-cardShop bg-base-card p-10">
-            <div className="flex max-h-96 flex-col overflow-y-auto">
+            <div className="flex max-h-80 flex-col overflow-y-auto">
               {cart.map((item) => (
                 <ShoppingCartCard
                   key={item.id}

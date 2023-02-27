@@ -1,3 +1,4 @@
+import CheckoutProvider from 'context/checkout/CheckoutProvider'
 import ShoppingCartProvider from 'context/ShoppingCartProvider'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from 'Router'
@@ -6,7 +7,9 @@ function App() {
   return (
     <BrowserRouter>
       <ShoppingCartProvider>
-        <Router />
+        <CheckoutProvider>
+          <Router />
+        </CheckoutProvider>
       </ShoppingCartProvider>
     </BrowserRouter>
   )

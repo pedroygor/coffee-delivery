@@ -7,13 +7,13 @@ interface ICheckoutProvider {
 
 function CheckoutProvider({ children }: ICheckoutProvider) {
   const [checkout, setCheckout] = useState<ICheckout>({
-    rua: '',
-    numero: 0,
     bairro: '',
     cidade: '',
     estado: '',
-    pagamento: ''
-  })
+    numero: 0,
+    pagamento: '',
+    rua: ''
+  } as ICheckout)
 
   return (
     <CheckoutContext.Provider value={{ checkout, setCheckout }}>

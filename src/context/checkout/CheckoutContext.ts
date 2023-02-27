@@ -1,4 +1,4 @@
-import { createContext } from 'react'
+import { createContext, Dispatch, SetStateAction } from 'react'
 
 export interface ICheckout {
   rua: string
@@ -11,7 +11,7 @@ export interface ICheckout {
 
 interface ICheckoutContext {
   checkout: ICheckout
-  setCheckout: (checkout: ICheckout) => void
+  setCheckout: Dispatch<SetStateAction<ICheckout>>
 }
 
 const CheckoutContext = createContext({} as ICheckoutContext)
