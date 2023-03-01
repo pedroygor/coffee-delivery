@@ -19,7 +19,7 @@ export const ShoppingCart = () => {
   const { setCheckout } = useContext(CheckoutContext)
   const navigate = useNavigate()
 
-  const frete = 7.0
+  const frete = cart.length > 0 ? 10 : 0
   const total = cart.reduce(
     (acc, curr) => acc + curr.price * curr.quantidade,
     0

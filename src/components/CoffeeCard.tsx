@@ -1,6 +1,7 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { useContext, useState } from 'react'
 import ShoppingCartContext from '../context/ShoppingCartContext'
+import { useNavigate } from 'react-router-dom'
 
 interface CoffeeCardProps {
   id: number
@@ -23,6 +24,7 @@ export const CoffeeCard = ({
 }: CoffeeCardProps) => {
   const [quantidadePedido, setQuantidadePedido] = useState(quantidade)
   const { addCoffee, cart } = useContext(ShoppingCartContext)
+  const navigate = useNavigate()
 
   const handleAdd = () => {
     if (quantidadePedido < 20) {
@@ -50,6 +52,7 @@ export const CoffeeCard = ({
       categorias,
       quantidade: quantidadePedido
     })
+    navigate('/carrinho')
   }
 
   return (
