@@ -44,6 +44,7 @@ export const ShoppingCartCard = ({
             <div className="flex flex-wrap items-center gap-2">
               <div className="flex h-8 w-14 items-center justify-center gap-1 rounded-lg bg-base-baseButton p-2">
                 <button
+                  type="button"
                   className="text-produto-purple transition-colors duration-300 ease-in-out hover:text-produto-purpleDark"
                   onClick={handleRemove}
                 >
@@ -53,6 +54,7 @@ export const ShoppingCartCard = ({
                   {quantidade}
                 </span>
                 <button
+                  type="button"
                   className="text-produto-purple transition-colors duration-300 ease-in-out hover:text-produto-purpleDark"
                   onClick={handleAdd}
                 >
@@ -61,7 +63,6 @@ export const ShoppingCartCard = ({
               </div>
               <button
                 className="flex items-center justify-center gap-1 rounded-md bg-base-baseButton px-2 py-[6px] transition-colors duration-300 ease-in-out hover:bg-base-radio
-
               "
                 onClick={() => removeCoffee(id)}
               >
