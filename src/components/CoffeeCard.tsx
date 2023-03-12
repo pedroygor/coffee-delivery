@@ -1,6 +1,6 @@
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import { useContext, useState } from 'react'
-import ShoppingCartContext from '../context/ShoppingCartContext'
+import ShoppingCartContext from '../context/shoppingCart/ShoppingCartContext'
 import { useNavigate } from 'react-router-dom'
 
 interface CoffeeCardProps {

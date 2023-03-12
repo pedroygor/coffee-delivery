@@ -1,5 +1,5 @@
 import { CoffeeCard } from './CoffeeCard'
-import ShoppingCartContext from '../context/ShoppingCartContext'
+import ShoppingCartContext from '../context/shoppingCart/ShoppingCartContext'
 import { useContext } from 'react'
 
 export const Coffees = () => {

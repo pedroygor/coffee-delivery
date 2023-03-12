@@ -1,6 +1,6 @@
 import { useContext } from 'react'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
-import ShoppingCartContext from '../context/ShoppingCartContext'
+import ShoppingCartContext from '../context/shoppingCart/ShoppingCartContext'
 import { IFormInput } from 'interfaces/IFormInput'
 import { ShoppingCartCard } from '../components/ShoppingCartCard'
 import CheckoutContext, { ICheckout } from '../context/checkout/CheckoutContext'

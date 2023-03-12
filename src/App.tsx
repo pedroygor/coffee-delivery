@@ -1,5 +1,5 @@
 import CheckoutProvider from 'context/checkout/CheckoutProvider'
-import ShoppingCartProvider from 'context/ShoppingCartProvider'
+import ShoppingCartProvider from 'context/shoppingCart/ShoppingCartProvider'
 import { BrowserRouter } from 'react-router-dom'
 import { Router } from 'Router'
 

@@ -1,4 +1,4 @@
-import ShoppingCartContext from '../context/ShoppingCartContext'
+import ShoppingCartContext from '../context/shoppingCart/ShoppingCartContext'
 import { MapPin, ShoppingCart } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import logo from '../assets/images/Logo.svg'
